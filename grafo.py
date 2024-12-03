@@ -8,3 +8,5 @@ def conectar():
 
  #Hola Grupo 2  
  #Hola Juli y Saris
+
+    print("Conectado a la base de datos")
