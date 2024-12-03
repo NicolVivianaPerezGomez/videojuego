@@ -6,4 +6,5 @@ cursor = conexion.cursor()
 
 def conectar():
 
- #Hola Grupo 2   
+ #Hola Grupo 2  
+ #Hola Juli y Saris
