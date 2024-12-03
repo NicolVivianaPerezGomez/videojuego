@@ -1,10 +1,9 @@
 import mysql.connector
 
 #PARTE ARTE
+conexion = mysql.connector.connect(host="localhost", user="root" password="1234", database="videojuego")
+cursor = conexion.cursor()
+
 def conectar():
-        conexion = mysql.connector.connect(
-            host="localhost",
-            user="root",
-            password="1234",
-            database="videojuego"
-        ):
+
+ #Hola Grupo 2   
