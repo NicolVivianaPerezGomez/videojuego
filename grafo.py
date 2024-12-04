@@ -4,15 +4,15 @@ import mysql.connector
 def conectar():
         conexion = mysql.connector.connect(
             host="localhost",
-            user="tu_usuario",
-            password="tu_contraseña",
-            database="SistemaDeJuego"
+            user="root",
+            password="1234",
+            database="videojuego"
         )
 
-# CRUD para la tabla jugadores
+# CRUD
 
 # Crear un jugador
-def crear_jugador(nombre, nivel, puntuacion, equipo, inventario):
+def crear_jugador(jug_nombre, nivel, puntuacion, equipo, inventario):
     conexion = conectar()
     if conexion:
             cursor = conexion.cursor()
@@ -20,9 +20,9 @@ def crear_jugador(nombre, nivel, puntuacion, equipo, inventario):
                 INSERT INTO jugadores (nombre, nivel, puntuacion, equipo, inventario)
                 VALUES (%s, %s, %s, %s, %s)
             """
-            cursor.execute(query, (nombre, nivel, puntuacion, equipo, inventario))
+            cursor.execute(query, (jug_nombre, nivel, puntuacion, equipo, inventario))
             conexion.commit()
-            print(f"Jugador '{nombre}' creado exitosamente")
+            print(f"Jugador '{jug_nombre}' creado exitosamente")
 
 # Leer jugadores
 def leer_jugadores():
@@ -81,11 +81,10 @@ def eliminar_jugador(id_jugador):
             print(f"Jugador con ID {id_jugador} eliminado exitosamente")
 
 
-# Ejemplo de uso del CRUD
 if __name__ == "__main__":
     # Crear jugadores
-    crear_jugador("Juan", 5, 100, "EquipoA", '{"espada": "nivel 5", "escudo": "nivel 3"}')
-    crear_jugador("María", 7, 200, "EquipoB", '{"pocion": "nivel 1", "arco": "nivel 4"}')
+    crear_jugador("Sara", 5, 100, "EquipoA", '{"espada": "nivel 5", "escudo": "nivel 3"}')
+    crear_jugador("Nicole", 7, 200, "EquipoB", '{"pocion": "nivel 1", "arco": "nivel 4"}')
 
     # Leer jugadores
     leer_jugadores()
