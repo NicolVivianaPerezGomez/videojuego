@@ -14,16 +14,7 @@ def conectar():
 # Crear un jugador
 def crear_jugador(jug_nombre, nivel, puntuacion, equipo, inventario):
     conexion = conectar()
-    if conexion:
-            cursor = conexion.cursor()
-            query = """
-                INSERT INTO jugadores (nombre, nivel, puntuacion, equipo, inventario)
-                VALUES (%s, %s, %s, %s, %s)
-            """
-            cursor.execute(query, (jug_nombre, nivel, puntuacion, equipo, inventario))
-            conexion.commit()
-            print(f"Jugador '{jug_nombre}' creado exitosamente")
-
+    
 # Leer jugadores
 def leer_jugadores():
     conexion = conectar()
