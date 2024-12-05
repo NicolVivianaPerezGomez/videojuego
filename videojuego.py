@@ -9,7 +9,7 @@ def conectar():
             database="videojuego"
         )
 
-# CRUD
+# CRUD JUGADORES
 
 # Crear un jugador
 def crear_jugador(jug_nombre, nivel, puntuacion, equipo, inventario):
@@ -74,8 +74,8 @@ def eliminar_jugador(id_jugador):
 
 if __name__ == "__main__":
     # Crear jugadores
-    crear_jugador("Sara", 5, 100, "EquipoA", '{"espada": "nivel 5", "escudo": "nivel 3"}')
-    crear_jugador("Nicole", 7, 200, "EquipoB", '{"pocion": "nivel 1", "arco": "nivel 4"}')
+    crear_jugador("Sara", 5, 100, "Lakers", '{"espada": "nivel 5", "escudo": "nivel 3"}')
+    crear_jugador("Nicole", 7, 200, "Monster", '{"pocion": "nivel 1", "arco": "nivel 4"}')
 
     # Leer jugadores
     leer_jugadores()
@@ -88,3 +88,5 @@ if __name__ == "__main__":
 
     # Leer jugadores después de modificaciones
     leer_jugadores()
+
+mundos = Graph()
