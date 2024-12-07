@@ -6,14 +6,15 @@ db = mysql.connector.connect(user='root',password='1234',host='localhost',databa
 cursor = db.cursor()
 
 # CRUD
-import json
 def RegistraJugador(jug_nombre, nivel, puntuacion, equipo, inventario):
     inventario_json = json.dumps(inventario)  # Convertir el diccionario a JSON
     cursor.callproc('RegistraJugador', (jug_nombre, nivel, puntuacion, equipo, inventario_json))
 
-# Uso de la función
-    RegistraJugador('Sandra', 3, 150, 'Equipo1', {"Espada":1, "Arco": 4})
+# Uso de la función guardar datos
+try:
+    RegistraJugador('Adela', 2, 60, 'Equipo2', {"Espada": 2, "Escudo": 1})
     db.commit()
     print("Jugador registrado exitosamente.")
+finally:
     cursor.close()
     db.close()
