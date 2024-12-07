@@ -11,14 +11,14 @@ def RegistrarJugador():
     if db:
         try:
             cursor = db.cursor()
-            jug_nombre = input("Nombre del jugador: ")
-            nivel = int(input("Nivel del jugador: "))
-            puntuacion = int(input("Puntuación del jugador: "))
-            equipo = input("Equipo del jugador: ")
-            inventario = input("Inventario (en formato JSON): ")
+            jug_nombre = input("Nombre: ")
+            nivel = int(input("Nivel: "))
+            puntuacion = int(input("Puntuación: "))
+            equipo = input("Equipo: ")
+            inventario = input("Inventario:")
             cursor.callproc('RegistraJugador', [jug_nombre, nivel, puntuacion, equipo, inventario])
             db.commit()
-            print("Jugador registrado con éxito.")
+            print("Jugador registrado.")
         finally:
             cursor.close()
             db.close()
@@ -42,15 +42,15 @@ def ModificadorJugadores():
     if db:
         try:
             cursor = db.cursor()
-            id_jugador = int(input("ID del jugador a modificar: "))
-            nombre = input("Nuevo nombre del jugador: ")
-            nivel = int(input("Nuevo nivel del jugador: "))
-            puntuacion = int(input("Nueva puntuación del jugador: "))
-            equipo = input("Nuevo equipo del jugador: ")
-            inventario = input("Nuevo inventario (en formato JSON): ")
+            id_jugador = int(input("ID del jugador: "))
+            nombre = input("Nuevo nombre: ")
+            nivel = int(input("Nuevo nivel: "))
+            puntuacion = int(input("Nueva puntuación: "))
+            equipo = input("Nuevo equipo: ")
+            inventario = input("Nuevo inventario: ")
             cursor.callproc('ModificarJugador', [id_jugador, nombre, nivel, puntuacion, equipo, inventario])
             db.commit()
-            print("Jugador modificado con éxito.")
+            print("Jugador modificado.")
         finally:
             cursor.close()
             db.close()
@@ -60,10 +60,10 @@ def EliminarJugador():
     if db:
         try:
             cursor = db.cursor()
-            id_jugador = int(input("ID del jugador a eliminar: "))
+            id_jugador = int(input("ID del jugador: "))
             cursor.callproc('EliminarJugador', [id_jugador])
             db.commit()
-            print("Jugador eliminado con éxito.")
+            print("Jugador eliminado.")
         finally:
             cursor.close()
             db.close()
@@ -72,10 +72,10 @@ def EliminarJugador():
 def menu():
     while True:
         print("\n**** REGISTRAR JUGADORES ****")
-        print("1. Crear jugador")
-        print("2. Consultar jugadores")
-        print("3. Modificar jugador")
-        print("4. Eliminar jugador")
+        print("1. Registarar a un jugador")
+        print("2. Consultar a los jugadores")
+        print("3. Modificar a un jugador")
+        print("4. Eliminar a un jugador")
         print("5. Salir")
         opcion = input("\nELIJE UNA OPCIÓN: ")
 
