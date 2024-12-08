@@ -50,7 +50,7 @@ graph.graph = {
 # Crear una instancia del grafo
 graph = Graph()
 
-# Agregar aristas (nodos y rutas)
+# Agregar rutas ( ubicació y rutas)
 graph.add_edge('1', '2', 100)
 graph.add_edge('1', '3', 700)
 graph.add_edge('1', '5', 300)
@@ -60,23 +60,23 @@ graph.add_edge('3', '4', 150)
 graph.add_edge('3', '5', 550)
 graph.add_edge('4', '5', 500)
 
-# Consultar nodos
-print("Nodos en el grafo:", graph.get_nodes())
+# Consultar Ubicaciones
+print("Ubicación en el grafo:", graph.get_nodes())
 
-# Consultar aristas
-print("Aristas en el grafo:", graph.get_edges())
+# Consultar rutas
+print("Ruta en el grafo:", graph.get_edges())
 
-# Actualizar la distancia entre dos nodos
+# Actualizar la distancia entre dos Ubicaciones
 print("Actualizando la distancia entre 1 y 2 a 150...")
 graph.update_edge('1', '2', 150)
 
-# Consultar aristas después de la actualización
-print("Aristas después de la actualización:", graph.get_edges())
+# Consultar ruta después de la actualización
+print("Rutas después de la actualización:", graph.get_edges())
 
-# Eliminar un nodo
-print("Eliminando el nodo 3...")
+# Eliminar una ubicación
+print("Eliminando la ubicación 3...")
 graph.delete_node('3')
 
-# Consultar nodos y aristas después de la eliminación
-print("Nodos después de la eliminación:", graph.get_nodes())
-print("Aristas después de la eliminación:", graph.get_edges())
+# Consultar después de la eliminación
+print("Ubicación después de la eliminación:", graph.get_nodes())
+print("Ruta después de la eliminación:", graph.get_edges())
