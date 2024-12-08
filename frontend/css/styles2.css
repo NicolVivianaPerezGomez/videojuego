@@ -1,0 +1,73 @@
+/* General */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: #000;
+}
+
+/* Contenedor principal */
+.container {
+    text-align: center;
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    max-width: 700px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    border: 2px solid #000;
+}
+
+/* Título */
+.title {
+    font-size: 36px;
+    font-weight: bold;
+    margin: 0;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* Logo */
+.logo {
+    max-width: 50%;
+    height: auto;
+    margin: 20px 0;
+}
+
+/* Descripción */
+.description {
+    font-size: 16px;
+    margin: 10px 0 20px;
+    line-height: 1.5;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center; /* Centra los botones horizontalmente */
+    gap: 15px; /* Espaciado entre los botones */
+    flex-wrap: wrap; /* Permite que los botones pasen a la siguiente línea si no hay espacio */
+}
+
+/* Botones */
+.buttons button {
+    display: block;
+    padding: 12px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #000;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.3s;
+    text-decoration: none; /* Elimina el subrayado */
+    display: inline-block; /* Para que se comporte como un botón */
+}
+
+.buttons button:hover {
+    background-color: #333;
+    transform: scale(1.05);
+}
