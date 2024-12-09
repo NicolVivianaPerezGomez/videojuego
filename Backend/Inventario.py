@@ -60,7 +60,7 @@ class HashTable:
 if __name__ == "__main__":
     # Crear una tabla hash para estudiantes
     inventario = HashTable(size=5)
-
+s
     # Insertar inventario
     inventario.insert("Inventario", {"Escudo":1,"Espada":2,"Armadura":3,"Arco":4})
 
