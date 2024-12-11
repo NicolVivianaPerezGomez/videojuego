@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DNS HILL GAME</title>
+    <link rel="stylesheet" href="../css/styles.css" />
+    <link rel="stylesheet" href="../css/styles2.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="titulo">Crear mundos</h1>
+        <img src="../assets/imgmapa.png" alt="mapa" class="mapa">
+
+        <div class="texto-mapas">
+            <div class="lista-mapas">
+                <h3>Ubicación</h3>
+                <ul>
+                    <li>1</li>
+                    <li>2</li>
+                    <li>3</li>
+                    <li>4</li>
+                    <li>5</li>
+                </ul>
+            </div>
+            <div class="lista-mapas">
+                <h3>RUTAS</h3>
+                <ul>
+                    <li>1-2 Distancia: (100km)</li>
+                    <li>2-3 Distancia: (200km)</li>
+                    <li>3-4 Distancia: (150km)</li>
+                    <li>4-5 Distancia: (500km)</li>
+                    <li>5-1 Distancia: (300km)</li>
+                    <li>2-5 Distancia: (600km)</li>
+                    <li>1-3 Distancia: (800km)</li>
+                    <li>1-4 Distancia: (1000km)</li>
+                    <li>2-4 Distancia: (700km)</li>
+                    <li>3-5 Distancia: (550km)</li>
+                </ul>
+            </div>
+        </div>
+        <p id="mensaje">¡Mundo creado con éxito!</p>
+      <div class="botones">
+        <button class="botones-gestion" id="mostrarBoton">Crear mundo</button>
+        <a href="./gestionmundos.html"><button class="botones-gestion">Regresar</button></a>
+      </div>
+    </div>
+    <script>
+      const boton = document.getElementById("mostrarBoton");
+      const mensaje = document.getElementById("mensaje");
+
+      boton.addEventListener("click", () => {
+        mensaje.style.display = "block";
+      });
+    </script>
+  </body>
+</html>

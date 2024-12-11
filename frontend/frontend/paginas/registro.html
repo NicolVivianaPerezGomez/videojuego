@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sección de registro</title>
+    <title>DNS HILL GAME</title>
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -27,11 +27,21 @@
             <input type="inventario" id="inventario" name="inventario" placeholder="" required>
         </form>
         </div>
+        <p id="mensaje">¡Cuenta creada con éxito!</p>
         <div class="center">
-          <button class="crearcuenta-btn" onclick="alert('¡In tus datos!')">
+          <button class="crearcuenta-btn" id="mostrarBoton">
             Crear Cuenta
           </button>
         </div>
       </div>
+
+      <script>
+        const boton = document.getElementById("mostrarBoton");
+        const mensaje = document.getElementById("mensaje");
+  
+        boton.addEventListener("click", () => {
+          mensaje.style.display = "block";
+        });
+      </script>
 </body>
 </html>

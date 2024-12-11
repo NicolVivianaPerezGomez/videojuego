@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DNS HILL GAME</title>
+    <link rel="stylesheet" href="../css/styles.css" />
+    <link rel="stylesheet" href="../css/styles2.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="titulo-rank">Ranking Global</h1>
+      <div class="tablasranking">
+        <table>
+          <thead>
+            <tr>
+              <th>Nombre</th>
+              <th>Posición</th>
+              <th>Puntuación</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+        <p id="mensaje">¡Ranking recargado con exito!</p>
+      </div>
+      <button class="botones-ranking" id="mostrarBoton">Recargar Ranking</button>
+        <a href="./bienvenida.html"><button class="botones-ranking">Regresar</button></a>
+    </div>
+
+
+    <script>
+        const boton = document.getElementById("mostrarBoton");
+        const mensaje = document.getElementById("mensaje");
+
+        boton.addEventListener("click", () => {
+            mensaje.style.display = "block";
+        });
+    </script>
+
+  </body>
+</html>

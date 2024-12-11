@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DNS HILL GAME</title>
+    <link rel="stylesheet" href="../css/styles.css" />
+    <link rel="stylesheet" href="../css/styles2.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="titulo">Gestión de Mundos</h1>
+      <div class="tablas">
+        <table>
+          <thead>
+            <tr>
+              <th>Nombre</th>
+              <th>Ubicaciones</th>
+              <th>Conexiones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+        <p id="mensaje">¡Mundo eliminado exitosamente!</p>
+      </div>
+      <div class="botones">
+        <a href="./crearmundo.html"
+          ><button class="botones-gestion">Crear mundo</button></a
+          ><button class="botones-gestion" id="mostrarBoton">
+            Eliminar mundo
+          </button>
+
+        <a href="./bienvenida.html"
+          ><button class="botones-gestion">Regresar</button></a
+        >
+      </div>
+    </div>
+
+
+    <script>
+      const boton = document.getElementById("mostrarBoton");
+      const mensaje = document.getElementById("mensaje");
+
+      boton.addEventListener("click", () => {
+        mensaje.style.display = "block";
+      });
+    </script>
+  </body>
+</html>
