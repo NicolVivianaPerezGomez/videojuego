@@ -1,7 +1,7 @@
 
 # CONECTAMOS LA BASE DE DATOS
-import mysql
-import json
+import mysql.connector
+import _json
 
 db = mysql.connector.connect(user='root',password='1234',host='localhost',database="videojuego", auth_plugin="mysql_native_password")
 cursor = db.cursor()
@@ -28,7 +28,7 @@ def ConsultarJugadores():
     if db:
         try:
             cursor = db.cursor()
-            cursor.callproc('ConsultarJugadores')
+            cursor.callproc('ConsultarJugadores'),
             for result in cursor.stored_results():
                 jugadores = result.fetchall()
                 for jugador in jugadores:
