@@ -46,7 +46,7 @@ def ver_jugadores(conexion):
 def main():
     conexion = conectar_db()
     while True:
-        print("\nOpciones:")
+        print("\nCREAR JUGADORES:")
         print("1. Agregar jugador")
         print("2. Ver jugadores")
         print("3. Salir")
