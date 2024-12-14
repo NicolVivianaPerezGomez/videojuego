@@ -1,5 +1,8 @@
 
 # CONECTAMOS LA BASE DE DATOS
+import mysql
+import json
+
 db = mysql.connector.connect(user='root',password='1234',host='localhost',database="videojuego", auth_plugin="mysql_native_password")
 cursor = db.cursor()
 
