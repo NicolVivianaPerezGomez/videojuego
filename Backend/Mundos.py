@@ -76,9 +76,6 @@ print("Ruta en el grafo:", graph.get_edges())
 print("Actualizando la distancia entre 1 y 2 a 150...")
 graph.update_edge('1', '2', 150)
 
-# Consultar ruta después de la actualización
-print("Rutas después de la actualización:", graph.get_edges())
-
 # Eliminar una ubicación
 print("Eliminando la ubicación 3...")
 graph.delete_node('3')
