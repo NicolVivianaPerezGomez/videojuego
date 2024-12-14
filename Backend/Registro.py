@@ -1,101 +1,69 @@
 import mysql.connector
 import json
+import mysql.connector
 
-#DICCIONARIO
-# CONECTAMOS LA BASE DE DATOS
-db = mysql.connector.connect(user='root',password='1234',host='localhost',database="videojuego", auth_plugin="mysql_native_password")
-cursor = db.cursor()
+def conectar_db():
+    return mysql.connector.connect( host="localhost", user="root",  password="1234",database="videojuego" )
 
-# CRUD
-def RegistrarJugador():
-    if db:
-        try:
-            cursor = db.cursor()
-            jug_nombre = input("Nombre: ")
-            nivel = int(input("Nivel: "))
-            puntuacion = int(input("Puntuación: "))
-            equipo = input("Equipo: ")
-            inventario = input("Inventario:")
-            cursor.callproc('RegistraJugador', [jug_nombre, nivel, puntuacion, equipo, inventario])
-            db.commit()
-            print("Jugador registrado.")
-        finally:
-            cursor.close()
-            db.close()
+def agregar_jugador(conexion):
+    cursor = conexion.cursor()
+    nombre = input("Nombre del jugador: ")
+    nivel = input("Nivel del jugador (por defecto 1): ") or 1
+    puntuacion = input("Puntuación del jugador (por defecto 0): ") or 0
+    equipo = input("Equipo del jugador (Equipo 1 y 2): ") or None
+    inventario = input("Inventario en formato JSON (opcional): ") or None
 
-# Consultar jugadores
-def ConsultarJugadores():
-    if db:
-        try:
-            cursor = db.cursor()
-            cursor.callproc('ConsultarJugadores')
-            for result in cursor.stored_results():
-                jugadores = result.fetchall()
-                for jugador in jugadores:
-                    print(jugador)
-        finally:
-                cursor.close()
-                db.close()
+    try:
+        query = """
+        INSERT INTO jugadores (jug_nombre, nivel, puntuación, equipo, inventario)
+        VALUES (%s, %s, %s, %s, %s)
+        """
+        cursor.execute(query, (nombre, nivel, puntuacion, equipo, inventario))
+        conexion.commit()
+        print("Jugador agregado exitosamente.")
+    except mysql.connector.Error as err:
+        print(f"Error: {err}")
+    finally:
+        cursor.close()
 
-# Modificar jugador
-def ModificadorJugadores():
-    if db:
-        try:
-            cursor = db.cursor()
-            id_jugador = int(input("ID del jugador: "))
-            nombre = input("Nuevo nombre: ")
-            nivel = int(input("Nuevo nivel: "))
-            puntuacion = int(input("Nueva puntuación: "))
-            equipo = input("Nuevo equipo: ")
-            inventario = input("Nuevo inventario: ")
-            cursor.callproc('ModificarJugador', [id_jugador, nombre, nivel, puntuacion, equipo, inventario])
-            db.commit()
-            print("Jugador modificado.")
-        finally:
-            cursor.close()
-            db.close()
+def ver_jugadores(conexion):
+    cursor = conexion.cursor(dictionary=True)
+    try:
+        query = "SELECT * FROM jugadores"
+        cursor.execute(query)
+        jugadores = cursor.fetchall()
 
-# Eliminar jugador
-def EliminarJugador():
-    if db:
-        try:
-            cursor = db.cursor()
-            id_jugador = int(input("ID del jugador: "))
-            cursor.callproc('EliminarJugador', [id_jugador])
-            db.commit()
-            print("Jugador eliminado.")
-        finally:
-            cursor.close()
-            db.close()
+        if not jugadores:
+            print("No hay jugadores registrados.")
+        else:
+            for jugador in jugadores:
+                print(f"ID: {jugador['id_jugador']}, Nombre: {jugador['jug_nombre']}, Nivel: {jugador['nivel']}, Puntuación: {jugador['puntuación']}, Equipo: {jugador['equipo']}, Inventario: {jugador['inventario']}")
+    except mysql.connector.Error as err:
+        print(f"Error: {err}")
+    finally:
+        cursor.close()
 
-# Menú principal
-def menu():
+def main():
+    conexion = conectar_db()
     while True:
-        print("\n**** REGISTRAR JUGADORES ****")
-        print("1. Registarar a un jugador")
-        print("2. Consultar a los jugadores")
-        print("3. Modificar a un jugador")
-        print("4. Eliminar a un jugador")
-        print("5. Salir")
-        opcion = input("\nELIJE UNA OPCIÓN: ")
+        print("\nOpciones:")
+        print("1. Agregar jugador")
+        print("2. Ver jugadores")
+        print("3. Salir")
+
+        opcion = input("Selecciona una opción: ")
 
         if opcion == "1":
-            RegistrarJugador()
-            break
+            agregar_jugador(conexion)
         elif opcion == "2":
-            ConsultarJugadores()
-            break
+            ver_jugadores(conexion)
         elif opcion == "3":
-            ModificadorJugadores()
+            print("Saliendo del programa...")
             break
-        elif opcion == "4":
-            EliminarJugador()
-            break
-        elif opcion == "5":
-            print("Cerrando Registros........")
         else:
-            print("ESTA OPCIÓN NO ES VÁLIDA")
+            print("Opción no válida. Intenta de nuevo.")
 
-# Ejecutar el menú
+    conexion.close()
+
 if __name__ == "__main__":
-    menu()
+    main()
